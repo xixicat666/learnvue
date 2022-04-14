@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+
+  //将多次异步请求的结果集中起来处理
+  Promise.all([
+      new Promise((resolve,reject) => {
+        setTimeout(() => {
+          resolve('result1')
+        })
+      }),
+    new Promise((resolve,reject) => {
+      setTimeout(() => {
+        resolve('result2')
+      })
+    })
+  ]).then(results => {
+    console.log(results)
+  })
+</script>
+
+</body>
+</html>

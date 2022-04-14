@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <!--时间监听时，不传参数可以将小括号省略-->
+  <button @click="btn1Click()">按钮1</button>
+  <button @click="btn1Click">按钮2</button>
+  <!--时间监听时方法本身有参数，但调用时没有传参（写了小括号）这个时候默认传undefined-->
+  <button @click="btn2Click()">按钮3</button>
+  <!--调用方法时省略了小括号，但方法本身有参数，这个时候Vue会将浏览器生成的event对象传入方法中-->
+  <button @click="btn2Click">按钮4</button>
+  <!--定义方法时，我们需要传参，同时有需要event对象，则使用$event-->
+  <button @click="btn3Click(123,$event)">按钮5</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      message:"你好啊"
+    },
+    methods:{
+      btn1Click(){
+        console.log("----------------")
+      },
+      btn2Click(event){
+        console.log("----------------",event)
+      },
+      btn3Click(a,event){
+        console.log("++++++++++++++",a,event)
+      }
+    }
+  })
+</script>
+
+</body>
+</html>

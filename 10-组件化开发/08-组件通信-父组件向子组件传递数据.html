@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <cpn :cmessage="message" :cmovies="movies"></cpn>
+</div>
+
+<template id="ccpn">
+  <div>
+    <h2>{{cmessage}}</h2>
+    <h2 v-for="item in cmovies">{{item}}</h2>
+  </div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+
+  const app = new Vue({
+    el: "#app",
+    data: {
+      message:"你好啊",
+      movies:['草莓','苹果']
+    },
+    components:{
+      cpn:{
+        template:'#ccpn',
+        data(){
+          return {}
+        },
+        //1、数组写法
+        //props:['cmessage','cmovies']
+        //2、对象写法 校验类型
+        /*props:{
+          cmessage:String,
+          cmovies:Array
+        }*/
+        //3、给默认值(默认值是对象或数组时，默认值必须是一个函数)   及必传值
+        props:{
+          cmessage:{
+            type:String,
+            default:'aaa',
+            required:true
+          },
+          cmovies:{
+            type:Array,
+            default(){
+              return []
+            }
+          }
+        }
+      }
+    }
+  })
+
+</script>
+
+</body>
+</html>

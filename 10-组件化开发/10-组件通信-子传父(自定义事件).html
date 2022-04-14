@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  {{counter}}
+  <cpn @increment-click="increment" @decrement-click="decrement"></cpn>
+</div>
+
+<template id="cpn">
+  <div>
+    <button @click="increment">+</button>
+    <button @click="decrement">-</button>
+  </div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      counter:0
+    },
+    components:{
+      cpn:{
+        template:'#cpn',
+        methods:{
+          increment(){
+            //发射事件   传值直接加在后面参数中
+            this.$emit('increment-click',11)
+          },
+          decrement(){
+            //发射事件
+            this.$emit('decrement-click',22)
+          }
+        }
+      }
+    },
+    methods:{
+      increment(a){
+        this.counter = a;
+      },
+      decrement(a){
+        this.counter = a;
+      }
+    }
+  })
+</script>
+
+</body>
+</html>

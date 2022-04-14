@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <!--<h2 :style="{key(属性名):value(属性值),key:value}">{{message}}</h2>-->
+  <h2 :style="getStylese()">{{message}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      message:"你好啊",
+      finalSize:'50px',
+      finaColor:'red'
+    },
+    methods:{
+      getStylese:function(){
+        return {fontSize:this.finalSize,color:this.finaColor};
+      }
+    }
+  })
+</script>
+
+</body>
+</html>

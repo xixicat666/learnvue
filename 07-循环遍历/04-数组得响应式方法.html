@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <ul>
+    <li v-for="item in arr">{{item}}</li>
+  </ul>
+  <button @click="butClick">按钮</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      arr:['a','b','c','d']
+    },
+    methods:{
+      butClick(){
+        //1、push()
+        //this.arr.push('aaa');
+        //2、pop()   删除最后一个元素
+        //this.arr.pop();
+        //3、shift()  删除第一个元素
+        //this.arr.shift();
+        //4、unshift()   在数组最前面添加元素
+        //this.arr.unshift('aaa','bbb')
+        //5、splice(start)
+        //删除元素:第二个参数是删除几个
+        //替换元素:第二个参数是替换几个元素，第三个参数是替换后得新元素
+        //追加元素:第二个参数是0，第三个参数是追加得新元素
+        //this.arr.splice(1,1)
+        //this.arr.splice(1,2,'aaa','bbb')
+        //this.arr.splice(1,0,'aaa','bbb')
+        //6、sort()  排序
+        //this.arr.sort()
+        //7、reverse()  倒序
+        //this.arr.reverse();
+
+        //this.arr[0]='aaa';  //非响应式的  可用以下两种方式实现响应式
+        //this.arr.splice(0,1,'aaa')
+        //set(要修改的对象,索引值,修改后的值)
+        Vue.set(this.arr,0,'aaa')
+
+      }
+    }
+  })
+</script>
+
+</body>
+</html>

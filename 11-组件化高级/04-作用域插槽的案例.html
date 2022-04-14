@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <!--作用域插槽：解决 父组件替换插槽的标签，但内容由子组件来提供-->
+  <cpn></cpn>
+  <cpn>
+    <!--目的是获取子组件中的movies-->
+    <template slot-scope="slot">
+      <span v-for="item in slot.data">{{item}}-</span>
+    </template>
+  </cpn>
+  <cpn></cpn>
+</div>
+
+<template id="cpn">
+  <div>
+    <!--可以起任意名字，不一定叫data-->
+    <slot :data="movies">
+      <ul>
+        <li v-for="item in movies">{{item}}</li>
+      </ul>
+    </slot>
+  </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    components:{
+      cpn:{
+        template:'#cpn',
+        data(){
+          return{
+            movies:['海王','海贼王','海尔兄弟']
+          }
+        }
+      }
+    }
+  })
+</script>
+
+</body>
+</html>

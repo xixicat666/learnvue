@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+
+  /*new Promise((resolve,reject) => {
+    setTimeout(() => {
+      resolve("111")
+    },1000)
+  }).then((data) => {
+    console.log(data)
+
+    //如果只有resolve时  可以省略掉reject参数
+    return new Promise((resolve) => {
+      resolve(data + '222')
+    })
+  }).then((data) => {
+    console.log(data)
+
+    return new Promise((resolve) => {
+      resolve(data + '333')
+    })
+  }).then((data) => {
+    console.log(data)
+  })*/
+
+  //resolve  简写1、new Promise(resolve => resolve(结果))
+  /*new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("111")
+    },1000)
+  }).then((data) => {
+    console.log(data)
+
+    return Promise.resolve(data + '222')
+  }).then((data) => {
+    console.log(data)
+
+    return Promise.resolve(data + '333')
+  }).then((data) => {
+    console.log(data)
+  })*/
+
+  //resolve  简写2、省略Promise.resolve()
+  /*new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("111")
+    },1000)
+  }).then((data) => {
+    console.log(data)
+
+    return data + '222'
+  }).then((data) => {
+    console.log(data)
+
+    return data + '333'
+  }).then((data) => {
+    console.log(data)
+  })*/
+
+  //reject  简写1、new Promise(reject => reject(结果))
+  /*new Promise((resolve,reject) => {
+    setTimeout(() => {
+      reject("111err")
+    },1000)
+  }).then((data) => {
+    console.log(data)
+
+    return Promise.reject(data + '222err')
+  }).then((data) => {
+    console.log(data)
+
+    return Promise.reject(data + '333err')
+  }).then((data) => {
+    console.log(data)
+  }).catch((data) => {
+    console.log(data)
+  })*/
+
+  //reject  简写2、通过throw抛出异常
+  new Promise((resolve,reject) => {
+    setTimeout(() => {
+      resolve("111err")
+    },1000)
+  }).then((data) => {
+    console.log(data)
+
+    //return Promise.reject(data + '222err')
+    throw "222err"
+  }).then((data) => {
+    console.log(data)
+
+    return Promise.reject(data + '333err')
+  }).then((data) => {
+    console.log(data)
+  }).catch((data) => {
+    console.log(data)
+  })
+
+</script>
+
+</body>
+</html>

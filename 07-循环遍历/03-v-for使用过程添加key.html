@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <!--官方推荐我们在使用v-for时添加一个  :key   属性-->
+  <!--这其实和Vue的虚拟DOM的Diff算法有关系  使元素和值一一对应起来-->
+  <!--key的值需始终与元素保持一致   例如index就不可当成key值-->
+  <!--key的作用主要是为了高效更新虚拟DOM-->
+  <ul>
+    <li v-for="item in names" :key="item">{{item}}</li>
+  </ul>
+  </ul>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      names:['西瓜','草莓','红薯']
+    }
+  })
+</script>
+
+</body>
+</html>

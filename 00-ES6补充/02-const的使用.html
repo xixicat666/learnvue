@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script src="../js/vue.js"></script>
+<script>
+  //注意一：一旦给const标识符赋值后，不可以修改
+  //const a = '123';
+  //a = '000';
+
+  //注意二：使用const定义标识符，必须进行赋值
+  //const b;
+
+  //注意三：常量的含义是指向的对象不能改变，但可以改变对象内部属性
+  const c = {
+    name: 'abc',
+    age: 18
+  }
+  c.name = 'ddd';
+  c.age = 19;
+</script>
+
+</body>
+</html>

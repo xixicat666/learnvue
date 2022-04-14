@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+<!--
+webpack是基于nodeJS的，nodeJS又基于许多npm命令
+因此在使用webpack前需安装nodeJS
+
+main.js是js的总入口，因此只打包main.js即可将其他引用的js都进行打包
+通过命令webpack ./src/main.js ./dist/bundle.js打包
+index.html直接引用打包好的bundle.js文件即可
+-->
+<script src="./dist/bundle.js"></script>
+</body>
+</html>

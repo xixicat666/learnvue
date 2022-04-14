@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+
+  <!--Vue为提高性能，对input等标签进行复用，导致切换成“邮箱登录”时，取到的label和input框还是账号登录的，会把用户之前输入的值带过来-->
+  <!--在框内加上key值加以区分，可避免复用问题；若key值相同则仍然会复用-->
+  <span v-if="isUser">
+    <label for="userName">账号登录</label>
+    <input type="text" id="userName" placeholder="账号登录" key="userName">
+  </span>
+  <span v-else>
+    <label for="email">邮箱登录</label>
+    <input type="text" id="email" placeholder="邮箱登录" key="email">
+  </span>
+  <button @click="isUser = !isUser">切换方式</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      isUser:true
+    }
+  })
+</script>
+
+</body>
+</html>

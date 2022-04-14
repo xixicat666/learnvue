@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <h2>{{name}}{{age}}</h2>
+
+  <h2>{{getInfo()}}</h2>
+  <h2>{{getInfo()}}</h2>
+  <h2>{{getInfo()}}</h2>
+
+  <h2>{{info}}</h2>
+  <h2>{{info}}</h2>
+  <h2>{{info}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      name:"小明",
+      age:'6岁'
+    },
+    methods:{
+      getInfo:function(){
+        console.log('methods...')
+        return this.name+this.age;
+      }
+    },
+    //计算属性有缓存机制，当属性内容未发生改变时则取缓存中的属性，不重复调用方法
+    //这种情况 优先使用计算属性
+    computed:{
+      info:function(){
+        console.log('computed...')
+        return this.name+this.age;
+      }
+    }
+  })
+</script>
+
+</body>
+</html>
